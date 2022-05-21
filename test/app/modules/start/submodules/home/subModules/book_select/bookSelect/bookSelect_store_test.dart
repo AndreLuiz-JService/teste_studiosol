@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:teste_studiosol/app/modules/start/submodules/home/subModules/book_select/bookSelect/bookSelect_store.dart';
  
 void main() {
   late BookSelectStore store;

@@ -27,10 +27,29 @@ class BookSelectPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(onPressed: (){
-                    Navigator.pop(context);
-                  }, icon: Icon(Icons.arrow_back,color: Colors.white,size: 30,)),
-                  IconButton(onPressed: (){}, icon: Icon(Icons.more_vert,color: Colors.white,size: 30,))
+                  Container(
+                    decoration: const BoxDecoration(
+                        color: Colors.black38, shape: BoxShape.circle),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 30,
+                        )),
+                  ),
+                  Container(
+                      decoration: const BoxDecoration(
+                          color: Colors.black26, shape: BoxShape.circle),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.more_vert,
+                            color: Colors.white,
+                            size: 30,
+                          )))
                 ],
               ),
             ),

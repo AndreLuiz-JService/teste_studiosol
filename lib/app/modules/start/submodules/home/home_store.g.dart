@@ -57,6 +57,22 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  late final _$descriptionAtom =
+      Atom(name: '_HomeStoreBase.description', context: context);
+
+  @override
+  String get description {
+    _$descriptionAtom.reportRead();
+    return super.description;
+  }
+
+  @override
+  set description(String value) {
+    _$descriptionAtom.reportWrite(value, super.description, () {
+      super.description = value;
+    });
+  }
+
   late final _$indexAtom = Atom(name: '_HomeStoreBase.index', context: context);
 
   @override
@@ -109,6 +125,17 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   }
 
   @override
+  void updateDescription(List<dynamic> list, String id) {
+    final _$actionInfo = _$_HomeStoreBaseActionController.startAction(
+        name: '_HomeStoreBase.updateDescription');
+    try {
+      return super.updateDescription(list, id);
+    } finally {
+      _$_HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void toggleIndex(int value) {
     final _$actionInfo = _$_HomeStoreBaseActionController.startAction(
         name: '_HomeStoreBase.toggleIndex');
@@ -125,6 +152,7 @@ mixin _$HomeStore on _HomeStoreBase, Store {
 favoritesBook: ${favoritesBook},
 favoritesAuthors: ${favoritesAuthors},
 allBooks: ${allBooks},
+description: ${description},
 index: ${index}
     ''';
   }

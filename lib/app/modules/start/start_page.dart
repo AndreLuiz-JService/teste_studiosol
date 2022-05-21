@@ -19,57 +19,60 @@ class StartPageState extends State<StartPage> {
 
   @override
   void initState() {
-    log('teste');
     Modular.to.navigate('/Home/');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: store.pageViewController,
-        children: const [
-          RouterOutlet(),
-          AdicionarPage(),
-          BuscarPage(),
-          FavoritosPage(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 2),
+        child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: store.pageViewController,
+          children: const [
+            RouterOutlet(),
+            AdicionarPage(),
+            BuscarPage(),
+            FavoritosPage(),
+          ],
+        ),
       ),
-      bottomNavigationBar: Container(
-        child: AnimatedBuilder(
-            animation: store.pageViewController,
-            builder: (context, snapshot) {
-              return BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                currentIndex: store.pageViewController.page?.round() ?? 0,
-                onTap: (index) {
-                 
-                  store.pageViewController.jumpToPage(
-                    index,
-                  );
-                },
-                items: const [
-                  BottomNavigationBarItem(
-                      backgroundColor: Colors.white,
-                      icon: Icon(Icons.home_filled),
-                      label: 'Inicio'),
-                  BottomNavigationBarItem(
-                      backgroundColor: Colors.white,
-                      icon: Icon(Icons.add_circle),
-                      label: 'adicionar'),
-                  BottomNavigationBarItem(
-                      backgroundColor: Colors.white,
-                      icon: Icon(Icons.search),
-                      label: 'Buscar'),
-                  BottomNavigationBarItem(
-                      backgroundColor: Colors.white,
-                      icon: Icon(Icons.favorite),
-                      label: 'favoritos'),
-                ],
-              );
-            }),
-      ),
+      bottomNavigationBar: AnimatedBuilder(
+          animation: store.pageViewController,
+          builder: (context, snapshot) {
+            return BottomNavigationBar(
+              
+              type: BottomNavigationBarType.fixed,
+              currentIndex: store.pageViewController.page?.round() ?? 0,
+              onTap: (index) {
+               
+                store.pageViewController.jumpToPage(
+                  index,
+                );
+              },
+              
+              iconSize: 30,
+              items: const [
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.white,
+                    icon: Icon(Icons.home_filled),
+                    label: 'Inicio'),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.white,
+                    icon: Icon(Icons.add_circle),
+                    label: 'adicionar'),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.white,
+                    icon: Icon(Icons.search),
+                    label: 'Buscar'),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.white,
+                    icon: Icon(Icons.favorite),
+                    label: 'favoritos'),
+              ],
+            );
+          }),
     );
   }
 }
