@@ -56,6 +56,16 @@ abstract class _HomeStoreBase with Store implements Disposable {
   }
 
   @observable
+  String description = '';
+
+  @action
+  void updateDescription(List list, String id) {
+    if (list != null) {
+      description = list.firstWhere((element) => element['id'] == id)['description'];
+    }
+  }
+
+  @observable
   Observable<int> index = 0.asObservable();
 
   @action
@@ -71,7 +81,7 @@ abstract class _HomeStoreBase with Store implements Disposable {
   }
 
   List<CategoryBook> categorys = [
-     CategoryBook(category: 'All', title: 'Todos',isSelect: true),
+    CategoryBook(category: 'All', title: 'Todos', isSelect: true),
     CategoryBook(category: 'ROMANCE', title: 'Romance'),
     CategoryBook(category: 'ADVENTURE', title: 'Aventura'),
     CategoryBook(category: 'COMEDY', title: 'Comedia'),
@@ -80,7 +90,8 @@ abstract class _HomeStoreBase with Store implements Disposable {
     CategoryBook(category: 'HORROR', title: 'Terror'),
   ];
 
-  String queryfavoritesBook = """
+  String queryfavoritesBook =
+      """
   query favoritesBook {
     favoriteBooks {
      id
@@ -94,7 +105,8 @@ abstract class _HomeStoreBase with Store implements Disposable {
   }
 """;
 
-  String queryfavoritesAuthors = """
+  String queryfavoritesAuthors =
+      """
   query favoriteAuthors {
   favoriteAuthors {
     name
@@ -104,7 +116,8 @@ abstract class _HomeStoreBase with Store implements Disposable {
 }
 """;
 
-  String queryAllBooks = """
+  String queryAllBooks =
+      """
   query allBooks {
   allBooks {
     id
@@ -120,6 +133,16 @@ abstract class _HomeStoreBase with Store implements Disposable {
   String userPicture = """
   query userPicture {
   userPicture
+}
+""";
+
+  String queryDescription =
+      """
+query description {
+  allBooks {
+    id
+    description
+  }
 }
 """;
 }

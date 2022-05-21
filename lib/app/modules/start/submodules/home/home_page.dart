@@ -106,8 +106,12 @@ class HomePageState extends State<HomePage> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                   BookSelectPage(book: favoriteBook),),
+                                            builder: (context) =>
+                                                BookSelectPage(
+                                              book: favoriteBook,
+                                              store: store,
+                                            ),
+                                          ),
                                         );
                                       }),
                                       child: Column(
@@ -372,58 +376,74 @@ class HomePageState extends State<HomePage> {
                                         child: Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               20, 0, 20, 20),
-                                          child: Row(
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: SizedBox(
-                                                    width: 48,
-                                                    height: 70,
-                                                    child: Image.network(
-                                                      allBooks.cover!,
-                                                      fit: BoxFit.cover,
-                                                    )),
-                                              ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 20),
-                                                  child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        SizedBox(
-                                                            child: Text(
-                                                          allBooks.name!,
-                                                          style: AppTextStyles
-                                                              .favoriteBookName,
-                                                          maxLines: 2,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                        )),
-                                                        const SizedBox(
-                                                          height: 5,
-                                                        ),
-                                                        SizedBox(
-                                                            child: Text(
-                                                          allBooks
-                                                              .author!.name!,
-                                                          style: AppTextStyles
-                                                              .favoriteBookauthor,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                        )),
-                                                      ]),
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BookSelectPage(
+                                                    book: allBooks,
+                                                    store: store,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              );
+                                            },
+                                            child: Row(
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: SizedBox(
+                                                      width: 48,
+                                                      height: 70,
+                                                      child: Image.network(
+                                                        allBooks.cover!,
+                                                        fit: BoxFit.cover,
+                                                      )),
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 20),
+                                                    child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          SizedBox(
+                                                              child: Text(
+                                                            allBooks.name!,
+                                                            style: AppTextStyles
+                                                                .favoriteBookName,
+                                                            maxLines: 2,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                          )),
+                                                          const SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          SizedBox(
+                                                              child: Text(
+                                                            allBooks
+                                                                .author!.name!,
+                                                            style: AppTextStyles
+                                                                .favoriteBookauthor,
+                                                            maxLines: 1,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                          )),
+                                                        ]),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       );
