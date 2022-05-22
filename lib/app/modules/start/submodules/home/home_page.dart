@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -7,7 +7,6 @@ import 'package:teste_studiosol/app/core/app_theme/app_color.dart';
 import 'package:teste_studiosol/app/core/app_theme/app_text_styles.dart';
 import 'package:teste_studiosol/app/modules/start/submodules/home/home_store.dart';
 import 'package:flutter/material.dart';
-import 'package:teste_studiosol/app/modules/start/submodules/home/model/favorite_authors_model.dart';
 import 'package:teste_studiosol/app/modules/start/submodules/home/pages/book_select_page.dart';
 
 import 'components/app_bar/app_bar.dart';
@@ -25,7 +24,6 @@ class HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     store.pageViewController = PageController();
     store.index.value = 0;
   }
@@ -51,7 +49,7 @@ class HomePageState extends State<HomePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
-                      child: Container(
+                      child: SizedBox(
                         width: size.width,
                         height: 30,
                         child: Row(
@@ -132,7 +130,7 @@ class HomePageState extends State<HomePage> {
                                             child: Text(
                                               favoriteBook.name!,
                                               style: AppTextStyles
-                                                  .favoriteBookName,
+                                                  .bookName,
                                               maxLines: 2,
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -142,7 +140,7 @@ class HomePageState extends State<HomePage> {
                                             child: Text(
                                               favoriteBook.author!.name!,
                                               style: AppTextStyles
-                                                  .favoriteBookauthor,
+                                                  .bookauthor,
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -158,11 +156,13 @@ class HomePageState extends State<HomePage> {
                           }),
                     ),
                     Container(
-                      decoration: const BoxDecoration(
+                      decoration:  BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(32),
+                          
                         ),
+                        boxShadow: [BoxShadow(color: Colors.black.withAlpha(13), offset: Offset(0, -1))]
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -256,7 +256,7 @@ class HomePageState extends State<HomePage> {
                                                             favoriteAuthors
                                                                 .name!,
                                                             style: AppTextStyles
-                                                                .favoriteBookName,
+                                                                .bookName,
                                                             maxLines: 2,
                                                             overflow:
                                                                 TextOverflow
@@ -270,7 +270,7 @@ class HomePageState extends State<HomePage> {
                                                           child: Text(
                                                             '${favoriteAuthors.booksCount.toString()} livros',
                                                             style: AppTextStyles
-                                                                .favoriteBookauthor,
+                                                                .bookauthor,
                                                             maxLines: 1,
                                                             overflow:
                                                                 TextOverflow
@@ -368,7 +368,7 @@ class HomePageState extends State<HomePage> {
                                 return Observer(builder: (_) {
                                   return ListView.builder(
                                     shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
+                                    physics: const NeverScrollableScrollPhysics(),
                                     itemBuilder: (context, index) {
                                       final allBooks =
                                           store.allBooks.value[index];
@@ -419,7 +419,7 @@ class HomePageState extends State<HomePage> {
                                                               child: Text(
                                                             allBooks.name!,
                                                             style: AppTextStyles
-                                                                .favoriteBookName,
+                                                                .bookName,
                                                             maxLines: 2,
                                                             overflow:
                                                                 TextOverflow
@@ -433,7 +433,7 @@ class HomePageState extends State<HomePage> {
                                                             allBooks
                                                                 .author!.name!,
                                                             style: AppTextStyles
-                                                                .favoriteBookauthor,
+                                                                .bookauthor,
                                                             maxLines: 1,
                                                             overflow:
                                                                 TextOverflow

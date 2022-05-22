@@ -12,10 +12,10 @@ class FavoriteAuthors {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['booksCount'] = this.booksCount;
-    data['picture'] = this.picture;
+    final Map<String, dynamic> data = {};
+    data['name'] = name;
+    data['booksCount'] = booksCount;
+    data['picture'] = picture;
     return data;
   }
 }

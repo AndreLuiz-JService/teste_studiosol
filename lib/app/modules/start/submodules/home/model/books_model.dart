@@ -7,6 +7,7 @@ class Books {
   Author? author;
   String? category;
   String? description;
+  bool? isFavorite;
 
   Books({
     this.id,
@@ -15,6 +16,7 @@ class Books {
     this.author,
     this.category,
     this.description,
+    this.isFavorite = false
   });
 
   Books.fromJson(Map<String, dynamic> json) {
@@ -24,18 +26,18 @@ class Books {
     category = json['category'];
     description = json['description'];
     author =
-        json['author'] != null ? new Author.fromJson(json['author']) : null;
+        json['author'] != null ?  Author.fromJson(json['author']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['cover'] = this.cover;
-    data['category'] = this.category;
-    data['description'] = this.category;
-    if (this.author != null) {
-      data['author'] = this.author!.toJson();
+    final Map<String, dynamic> data =  {};
+    data['id'] = id;
+    data['name'] = name;
+    data['cover'] = cover;
+    data['category'] = category;
+    data['description'] = category;
+    if (author != null) {
+      data['author'] = author!.toJson();
     }
     return data;
   }

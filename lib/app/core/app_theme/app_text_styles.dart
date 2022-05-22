@@ -28,12 +28,12 @@ class AppTextStyles {
     color: Colors.white,
   );
 
-  static final favoriteBookName = GoogleFonts.roboto(
+  static final bookName = GoogleFonts.roboto(
     fontSize: 16,
     fontWeight: FontWeight.w700,
     color: AppColors.greyTitle,
   );
-  static final favoriteBookauthor = GoogleFonts.roboto(
+  static final bookauthor = GoogleFonts.roboto(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.greylite,

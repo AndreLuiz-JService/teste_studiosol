@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:teste_studiosol/app/core/app_theme/app_text_styles.dart';
 import 'package:teste_studiosol/app/modules/start/submodules/home/home_store.dart';
@@ -57,10 +55,16 @@ class BookSelectPage extends StatelessWidget {
           SafeArea(
             child: Container(
               margin: EdgeInsets.only(top: size.height * 0.35),
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.only(topLeft: Radius.circular(32))),
+              decoration:  BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(32)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withAlpha(50),
+                    offset: const Offset(0, -0.75)
+                  )
+                ]
+              ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 32, 20, 0),
                 child: Column(
@@ -78,7 +82,7 @@ class BookSelectPage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 22),
                           child: IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.favorite_border_outlined)),
+                              icon: const Icon(Icons.favorite_border_outlined)),
                         )
                       ],
                     ),
@@ -86,7 +90,7 @@ class BookSelectPage extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 8, 0, 20),
                       child: Text(
                         book.author!.name!,
-                        style: AppTextStyles.favoriteBookauthor,
+                        style: AppTextStyles.bookauthor,
                       ),
                     ),
                     Expanded(

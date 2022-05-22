@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:teste_studiosol/app/modules/start/pages/adicionar_page.dart';

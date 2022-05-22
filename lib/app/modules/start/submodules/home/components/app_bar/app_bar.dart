@@ -18,10 +18,10 @@ class CustomAppBar extends StatelessWidget {
       height: 128,
       width: size.width,
       padding: const EdgeInsets.fromLTRB(20, 6, 12, 0),
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(bottomRight: Radius.circular(32)),
+      decoration:  BoxDecoration(
+          borderRadius: const BorderRadius.only(bottomRight: Radius.circular(32)),
           color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.black26, offset: Offset(0, 1))]),
+          boxShadow: [BoxShadow(color: Colors.black.withAlpha(13), offset: Offset(0, 1))]),
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -62,7 +62,7 @@ class CustomAppBar extends StatelessWidget {
 
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(50),
-                        child: Container(
+                        child: SizedBox(
                           height: 40,
                           width: 40,
                           child: Image.network(

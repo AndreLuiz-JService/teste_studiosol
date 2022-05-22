@@ -8,14 +8,14 @@ class AppWidget extends StatelessWidget {
       title: 'My Smart App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: Color(0xffA076F2),
-          splashColor: Color(0xffA076F2),
+          primaryColor: const Color(0xffA076F2),
+          splashColor: const Color(0xffA076F2),
           textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                  onSurface: Color(0xffA076F2), primary: Color(0xffA076F2))),
+                  onSurface: const Color(0xffA076F2), primary: const Color(0xffA076F2))),
           outlinedButtonTheme: OutlinedButtonThemeData(
               style: TextButton.styleFrom(
-                  onSurface: Color(0xffA076F2), primary: Color(0xffA076F2))),
+                  onSurface: const Color(0xffA076F2), primary: const Color(0xffA076F2))),
           scaffoldBackgroundColor: const Color(0xffF7F7F7),
           appBarTheme: const AppBarTheme(
               toolbarHeight: 128,
